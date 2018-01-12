@@ -1,12 +1,13 @@
-#ch5 exercise2
-#Write another program that prompts for a list of numbers as above and at the
-#end prints out both the maximum and minimum of the numbers instead of the average.
+# ch5 exercise2
+# Write another program that prompts for a list of numbers as above and at the
+# end prints out both the maximum and minimum of the numbers instead of the average.
 
 print('Provide a list a number here; start to enter numbers')
 print('Enter "done" when you entered all the numbers.')
 
+my_list = []
 count = 0
-mylist = []
+
 while True:
     inp_num = input('Enter a number: ')
     if inp_num == 'done':
@@ -16,22 +17,20 @@ while True:
     except:
         print('Invalid value')
         continue
-    mylist.append(finp)
-    count = count + 1
-print('You have entered {} numbers; they are {}' .format(count, mylist))
+    my_list.append(finp)
+    count += 1
 
-x_largest = None
-for itervar in mylist:
-    if x_largest is None or itervar > x_largest :
-        x_largest = itervar
+print('You have entered {} numbers; they are {}' .format(count, my_list))
+print('You have entered {} numbers; they are {}' .format(len(my_list), my_list))  # build-in function
 
-x_smallest = None
-for itervar in mylist:
-    if x_smallest is None or itervar < x_smallest:
-        x_smallest = itervar
+largest = my_list[0]
+smallest = my_list[0]
 
-print('Largest:', x_largest, 'Smallest:', x_smallest)
+for num in my_list:
+    if num > largest:
+        largest = num
+    if num < smallest:
+        smallest = num
 
-#largest = max(mylist)
-#smallest = min(mylist)
-#print('Max:', largest, 'Min:', smallest)
+print('Largest: {} / Smallest: {}'.format(largest, smallest))
+print('Largest: {} / Smallest: {}'.format(max(my_list), min(my_list)))  # build-in function
